@@ -1,0 +1,18 @@
+#container {
+  display: grid;
+  margin: auto;
+}
+
+@media (orientation: landscape) {
+  #container {
+    width: 100vh;
+    height: 100vh;
+  }
+}
+
+@media (orientation: portrait) {
+  #container {
+    width: 100vw;
+    height: 100vw;
+  }
+}
