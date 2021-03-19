@@ -1,0 +1,1 @@
+This project is a sort of digital etch-a-sketch that showcases DOM manipulation with JavaScript.
