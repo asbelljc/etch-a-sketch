@@ -6,7 +6,7 @@ function colorIt(e) {
 
 function clearGrid() {
   while (container.firstChild) {
-      container.removeChild(container.firstChild);
+    container.removeChild(container.firstChild);
   }
 }
 
@@ -29,5 +29,13 @@ function makeGrid(sideLength) {
 
   fillGrid(sideLength);
 }
+
+let sideCount = document.querySelector("#side-count");
+sideCount.value = 16;
+let sliderLabel = document.querySelector("#slider-label");
+sliderLabel.textContent = sideCount.value;
+sideCount.addEventListener("mousemove", function() {
+  sliderLabel.textContent = sideCount.value;
+})
 
 makeGrid(16);
