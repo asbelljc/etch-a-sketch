@@ -7,11 +7,11 @@ body {
   height: 100vh;
   margin: auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  max-width: 958px;
 }
 
 #panel {
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,8 +21,9 @@ body {
 
 #controls {
   display: flex;
+  flex-direction: column;
   justify-content:space-evenly;
-  align-items: center;
+  align-items: left;
 }
 
 header {
@@ -33,70 +34,26 @@ header {
 }
 
 #container {
+  margin: auto;
   display: grid;
   background-color: rgba(0, 0, 0, 0.05);
+  min-width: 70vh;
+  height: 70vh;
 }
 
-/* portrait */
-@media (max-aspect-ratio: 3/4) {
-  body {
-    flex-direction: column;
-  }
-
-  #container {
-    width: 100vw;
-    height: 100vw;
-  }
-
-  #controls {
-    width: 100vw;
-  }
+#reset {
+  display: flex;
 }
 
-/* short portrait */
-@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1) {
-  body {
-    flex-direction: column;
-  }
-
-  #container {
-    width: 75vw;
-    height: 75vw;
-  }
-
-  #controls {
-    width: 75vw;
-  }
+#reset-btn {
+  margin: 1vmax;
 }
 
-/* narrow landscape */
-@media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 4/3) {
-  body {
-    flex-direction: row;
-  }
-
-  #container {
-    width: 75vh;
-    height: 75vh;
-  }
-
-  #controls {
-    flex-direction: column;
-  }
+#side-count {
+  margin: 1vmax;
 }
 
-/* landscape */
-@media (min-aspect-ratio: 4/3) {
-  body {
-    flex-direction: row;
-  }
-
-  #container {
-    width: 100vh;
-    height: 100vh;
-  }
-
-  #controls {
-    flex-direction: column;
-  }
+#slider-label {
+  margin: 1vmax;
+  white-space: nowrap;
 }
