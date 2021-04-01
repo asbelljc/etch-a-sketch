@@ -39,5 +39,3 @@ sideCount.addEventListener("mousemove", function() {
 })
 
 makeGrid(16);
-
-/* make mona lisa or something at page load! */
