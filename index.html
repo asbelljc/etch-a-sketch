@@ -7,24 +7,22 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  <section id="panel">
-    <header>[sketch]</header>
-    <div id="controls">
-      <div id="reset">
-        <button id="reset-btn">reset</button>
-        <input id="side-count" type="range" min="1" max="100" value="16">
-        <label id="slider-label" for="side-count"></label>
-      </div>
-      <form id="color-types">
-        <input type="radio" name="color" value="user">
-        <input id="color-picker" type="color"><br>
-        <input id="darken" type="radio" name="color" value="darken">
-        <label for="darken">darken</label><br>
-        <input id="random" type="radio" name="color" value="random">
-        <label for="random">random</label>
-      </form>
+  <header>[sketch]</header>
+  <div id="controls">
+    <div id="reset">
+      <button><span>reset</span></button>
+      <input id="side-count" type="range" min="1" max="100" value="16">
+      <label id="slider-label" for="side-count"></label>
     </div>
-  </section>
+    <form id="color-types">
+      <input type="radio" name="color" value="default">
+      <input id="color-picker" type="color"><br>
+      <input id="darken" type="radio" name="color" value="darken">
+      <label for="darken">darken</label><br>
+      <input id="random" type="radio" name="color" value="random">
+      <label for="random">random</label>
+    </form>
+  </div>
   <div id="container"></div>
 </body>
 </html>

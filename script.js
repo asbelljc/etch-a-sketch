@@ -33,9 +33,11 @@ function makeGrid(sideLength) {
 let sideCount = document.querySelector("#side-count");
 sideCount.value = 16;
 let sliderLabel = document.querySelector("#slider-label");
-sliderLabel.innerHTML = "pixels: " + sideCount.value + ("2").sup();
+sliderLabel.innerHTML = sideCount.value + ("2").sup();
 sideCount.addEventListener("mousemove", function() {
-  sliderLabel.innerHTML = "pixels: " + sideCount.value + ("2").sup();
+  sliderLabel.innerHTML = sideCount.value + ("2").sup();
 })
 
 makeGrid(16);
+
+/* make mona lisa or something at page load! */
