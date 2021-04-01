@@ -49,23 +49,54 @@ header {
 }
 
 button {
+  position: relative;
   border: none;
-  border-radius: 10px;
+  background-color: transparent;
   padding: 0;
   margin-right: 1vmax;
   width: 50px;
   height: 30px;
-  background-color: hsl(0, 85%, 28%);
   cursor: pointer;
   transform: translateY(3px);
+  transition: filter 250ms;
 }
 
-span {
-  display: block;
-  transition:
+.btn-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: hsl(0deg 0% 0% / 0.25);
+  will-change: transform;
+  transform: translateY(2px);
+  transition: 
     transform
     600ms
     cubic-bezier(.3, .7, .4, 1);
+  filter: blur(3px);
+}
+
+.btn-edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(
+    to left,
+    hsl(0, 85%, 17%) 0%,
+    hsl(0, 85%, 34%) 20%,
+    hsl(0, 85%, 34%) 80%,
+    hsl(0, 85%, 17%) 100%
+  );
+}
+
+.btn-front {
+  display: block;
+  position: relative;
   font-weight: bold;
   color: white;
   background-color: hsl(0, 85%, 48%);
@@ -74,10 +105,19 @@ span {
   width: 50px;
   height: 30px;
   line-height: 30px;
+  will-change: transform;
   transform: translateY(-4px);
+  transition:
+    transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
 }
 
-button:hover span {
+button:hover {
+  filter: brightness(110%);
+}
+
+button:hover .btn-front {
   transform: translateY(-6px);
   transition:
     transform
@@ -85,8 +125,21 @@ button:hover span {
     cubic-bezier(.3, .7, .4, 1.5);
 }
 
-button:active span {
+button:hover .btn-shadow {
+  transform: translateY(4px);
+  transition:
+    transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+}
+
+button:active .btn-front {
   transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+button:active .btn-shadow {
+  transform: translateY(1px);
   transition: transform 34ms;
 }
 
