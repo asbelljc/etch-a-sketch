@@ -30,14 +30,15 @@ function makeGrid(sideLength) {
   fillGrid(sideLength);
 }
 
-let sideCount = document.querySelector("#side-count");
-sideCount.value = 16;
+// use start dimension 16x16 and connect it to slider/label
+let sizeSlider = document.querySelector("#size-slider");
+sizeSlider.value = 16;
 let sliderLabel = document.querySelector("#slider-label");
-sliderLabel.innerHTML = sideCount.value + "2".sup();
-sideCount.addEventListener("mousemove", function() {
-  sliderLabel.innerHTML = sideCount.value + "2".sup();
+sliderLabel.innerHTML = sizeSlider.value + "2".sup();
+sizeSlider.addEventListener("mousemove", function() {
+  sliderLabel.innerHTML = sizeSlider.value + "2".sup();
 });
 
-document.getElementById("reset-btn").onclick = function(){makeGrid(sideCount.value)};
+makeGrid(sizeSlider.value);
 
-makeGrid(sideCount.value);
+document.getElementById("reset-btn").onclick = function(){makeGrid(sizeSlider.value)};

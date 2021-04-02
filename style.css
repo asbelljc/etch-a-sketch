@@ -75,7 +75,7 @@ button {
     transform
     600ms
     cubic-bezier(.3, .7, .4, 1);
-  filter: blur(3px);
+  filter: blur(4px);
 }
 
 .btn-edge {
@@ -99,6 +99,7 @@ button {
   position: relative;
   font-weight: bold;
   color: white;
+  text-shadow: 0 -1px hsl(0, 85%, 17%);
   background-color: hsl(0, 85%, 48%);
   border: none;
   border-radius: 10px;
