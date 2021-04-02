@@ -1,7 +1,7 @@
 html {
   margin: 0;
   font-family: monospace;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 body {
@@ -23,7 +23,8 @@ body {
 
 header {
   display: block;
-  text-shadow: 0.3vmax 0.3vmax white;
+  color: black;
+  text-shadow: 0.3vmax 0.3vmax 0.2vmax rgb(255, 255, 255);
   text-align: center;
   font-size: 4vmax;
   font-weight: bold;
@@ -148,7 +149,7 @@ button:focus:not(:focus-visible) {
   outline: none;
 }
 
-#side-count {
+#size-slider {
   vertical-align: middle;
 }
 

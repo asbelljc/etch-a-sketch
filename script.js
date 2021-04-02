@@ -1,4 +1,6 @@
 const container = document.getElementById("container");
+let sizeSlider = document.getElementById("size-slider");
+sizeSlider.value=16; // makes starting grid 16 x 16
 
 function colorIt(e) {
   e.target.style.backgroundColor = "black";
@@ -30,14 +32,14 @@ function makeGrid(sideLength) {
   fillGrid(sideLength);
 }
 
-// use start dimension 16x16 and connect it to slider/label
-let sizeSlider = document.querySelector("#size-slider");
-sizeSlider.value = 16;
-let sliderLabel = document.querySelector("#slider-label");
-sliderLabel.innerHTML = sizeSlider.value + "2".sup();
-sizeSlider.addEventListener("mousemove", function() {
+function showSliderValue() {
+  let sliderLabel = document.getElementById("slider-label");
   sliderLabel.innerHTML = sizeSlider.value + "2".sup();
-});
+}
+
+showSliderValue();
+
+sizeSlider.oninput = showSliderValue;
 
 makeGrid(sizeSlider.value);
 
