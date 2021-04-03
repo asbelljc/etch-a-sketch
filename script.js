@@ -19,6 +19,7 @@ function sizeGrid(sideLength) {
 function fillGrid(sideLength) {
   for (let i = 0; i < (sideLength ** 2); i++) {
     const pixel = document.createElement("div");
+    pixel.style.backgroundColor = "rgba(0, 0, 0, 0)"; // format needed for darken mode
     pixel.addEventListener("mouseover", colorIt);
     container.appendChild(pixel);
   }
@@ -44,3 +45,10 @@ sizeSlider.oninput = showSliderValue;
 makeGrid(sizeSlider.value);
 
 document.getElementById("reset-btn").onclick = function(){makeGrid(sizeSlider.value)};
+
+function randomColor() {
+  let red = Math.floor(Math.random()*255);
+  let green = Math.floor(Math.random()*255);
+  let blue = Math.floor(Math.random()*255);
+  return `rgba(${red}, ${green}, ${blue}, 1)`;
+}
