@@ -43,7 +43,7 @@ header {
   max-height: 588px;
   min-width: 363px;
   min-height: 363px;
-  box-shadow: 1vmax 1vmax 1vmax rgba(0, 0, 0, 0.2); 
+  box-shadow: 1vmax 1vmax 1vmax rgba(0, 0, 0, 0.2);
 }
 
 #reset {
@@ -116,7 +116,7 @@ button {
 }
 
 button:hover {
-  filter: brightness(110%);
+  filter: brightness(1.1);
 }
 
 button:hover .btn-front {
