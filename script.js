@@ -2,8 +2,47 @@ const container = document.getElementById("container");
 let sizeSlider = document.getElementById("size-slider");
 sizeSlider.value=16; // makes starting grid 16 x 16
 
+function hexToRgb(hex) {
+  let r = parseInt(hex.slice(1, 3), 16);
+  let g = parseInt(hex.slice(3, 5), 16);
+  let b = parseInt(hex.slice(5), 16);
+  return [r, g, b];
+}
+
+function colorChosen(e) {
+  let chosenColor = hexToRgb(document.getElementById("color-picker").value);
+  e.target.style.backgroundColor = `rgb(${chosenColor[0]}, ${chosenColor[1]}, ${chosenColor[2]})`;
+}
+
+function colorDarker(e) {
+  let oldColor = e.target.style.backgroundColor.slice(4, -1).replace(/ /g, "").split(",");
+  let newColor = oldColor.map(function(value) {
+    if (value < 25) {
+      return 0;
+    } else {
+      return value - 25;
+    }
+  });
+  e.target.style.backgroundColor = `rgb(${newColor[0]}, ${newColor[1]}, ${newColor[2]})`
+}
+
+function colorRandom(e) {
+  let red = Math.floor(Math.random()*255);
+  let green = Math.floor(Math.random()*255);
+  let blue = Math.floor(Math.random()*255);
+  e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+}
+
 function colorIt(e) {
-  e.target.style.backgroundColor = "black"; // placeholder for now
+  let darken = document.getElementById("darken").checked;
+  let random = document.getElementById("random").checked;
+  if (darken) {
+    colorDarker(e);
+  } else if (random) {
+    colorRandom(e);
+  } else {
+    colorChosen(e);
+  }
 }
 
 function clearGrid() {
@@ -20,7 +59,7 @@ function fillGrid(sideLength) {
   for (let i = 0; i < (sideLength ** 2); i++) {
     const pixel = document.createElement("div");
     pixel.style.backgroundColor = "rgb(255, 255, 255)";
-    pixel.addEventListener("mouseover", darken); // ***here for testing***
+    pixel.addEventListener("mouseover", colorIt);
     container.appendChild(pixel);
   }
 }
@@ -43,26 +82,6 @@ sizeSlider.oninput = showSliderValue;
 makeGrid(sizeSlider.value);
 
 document.getElementById("reset-btn").onclick = function(){makeGrid(sizeSlider.value)};
-
-function colorRandom() {
-  let red = Math.floor(Math.random()*255);
-  let green = Math.floor(Math.random()*255);
-  let blue = Math.floor(Math.random()*255);
-  return `rgb(${red}, ${green}, ${blue})`;
-}
-
-
-function darken(e) {
-  let oldColor = e.target.style.backgroundColor.slice(4, -1).replace(/ /g, "").split(",");
-  let newColor = oldColor.map(function(value) {
-    if (value < 25) {
-      return 0;
-    } else {
-      return value - 25;
-    }
-  });
-  e.target.style.backgroundColor = `rgb(${newColor[0]}, ${newColor[1]}, ${newColor[2]})`
-}
 
 // SAVE THIS FOR README DOCUMENTATION
 // function darken(e) {
