@@ -19,8 +19,7 @@ function sizeGrid(sideLength) {
 function fillGrid(sideLength) {
   for (let i = 0; i < (sideLength ** 2); i++) {
     const pixel = document.createElement("div");
-    pixel.style.backgroundColor = "white"; // needed for
-    pixel.style.filter = "brightness(1)";  // darken mode
+    pixel.style.backgroundColor = "rgb(255, 255, 255)";
     pixel.addEventListener("mouseover", darken); // ***here for testing***
     container.appendChild(pixel);
   }
@@ -52,12 +51,25 @@ function colorRandom() {
   return `rgb(${red}, ${green}, ${blue})`;
 }
 
+
 function darken(e) {
-  let pixelBrightness = e.target.style.filter.match(/\d(\.\d)?/);
-  
-  if (pixelBrightness === "0") {
-    return;
-  } else {
-    e.target.style.filter = `brightness(${(pixelBrightness[0] - 0.1).toFixed(1)})`;
-  }
+  let oldColor = e.target.style.backgroundColor.slice(4, -1).replace(/ /g, "").split(",");
+  let newColor = oldColor.map(function(value) {
+    if (value < 25) {
+      return 0;
+    } else {
+      return value - 25;
+    }
+  });
+  e.target.style.backgroundColor = `rgb(${newColor[0]}, ${newColor[1]}, ${newColor[2]})`
 }
+
+// SAVE THIS FOR README DOCUMENTATION
+// function darken(e) {
+//   let pixelBrightness = e.target.style.filter.match(/\d(\.\d)?/);  
+//   if (pixelBrightness === "0") {
+//     return;
+//   } else {
+//     e.target.style.filter = `brightness(${(pixelBrightness[0] - 0.1).toFixed(1)})`;
+//   }
+// }
