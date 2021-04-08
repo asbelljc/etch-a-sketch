@@ -18,14 +18,30 @@
       <input id="size-slider" type="range" min="1" max="100" value="16">
       <label id="slider-label" for="size-slider"></label>
     </div>
-    <form id="color-types">
-      <input type="radio" name="color" value="default" checked="true">
+    <div id="color-types">
+      <button id="choose-btn" class="current">
+        <span class="btn-shadow"></span>
+        <span class="btn-edge"></span>
+        <span class="btn-front">choose</span>
+      </button>
+      <button id="random-btn">
+        <span class="btn-shadow"></span>
+        <span class="btn-edge"></span>
+        <span class="btn-front">random</span>
+      </button>
+      <button id="darken-btn">
+        <span class="btn-shadow"></span>
+        <span class="btn-edge"></span>
+        <span class="btn-front">darken</span>
+      </button>
+      <!-- <input type="radio" name="color" value="default" checked="true">
       <input id="color-picker" type="color"><br>
       <input id="darken" type="radio" name="color" value="darken">
       <label for="darken">darken</label><br>
       <input id="random" type="radio" name="color" value="random">
-      <label for="random">random</label>
-    </form>
+      <label for="random">random</label> -->
+    </div>
+    <input id="color-picker" type="color">
   </div>
   <div id="container"></div>
 </body>

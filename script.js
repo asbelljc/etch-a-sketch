@@ -1,6 +1,37 @@
 const container = document.getElementById("container");
 let sizeSlider = document.getElementById("size-slider");
-sizeSlider.value=16; // makes starting grid 16 x 16
+sizeSlider.value = 16; // makes starting grid 16 x 16
+let chooseBtn = document.getElementById("choose-btn");
+let randomBtn = document.getElementById("random-btn");
+let darkenBtn = document.getElementById("darken-btn");
+let colorTypes = document.getElementById("color-types");
+
+colorTypes.addEventListener("click", (e) => {
+  const isButton = e.target.nodeName === "BUTTON" || 
+  e.target.parentNode.nodeName === "BUTTON";
+
+  if (!isButton) {return;}
+  if (
+    e.target.classList.contains("current") ||
+    e.target.parentNode.classList.contains("current")
+  ) {
+    return;
+  }
+
+  if (e.target.id === "choose-btn" || e.target.parentNode.id === "choose-btn") {
+    chooseBtn.classList.add("current");
+    randomBtn.classList.remove("current");
+    darkenBtn.classList.remove("current");
+  } else if (e.target.id === "random-btn" || e.target.parentNode.id === "random-btn") {
+    randomBtn.classList.add("current");
+    chooseBtn.classList.remove("current");
+    darkenBtn.classList.remove("current");
+  } else if (e.target.id === "darken-btn" || e.target.parentNode.id === "darken-btn") {
+    darkenBtn.classList.add("current");
+    chooseBtn.classList.remove("current");
+    randomBtn.classList.remove("current");
+  }
+});
 
 function hexToRgb(hex) {
   let r = parseInt(hex.slice(1, 3), 16);
@@ -34,14 +65,12 @@ function colorRandom(e) {
 }
 
 function colorIt(e) {
-  let darken = document.getElementById("darken").checked;
-  let random = document.getElementById("random").checked;
-  if (darken) {
-    colorDarker(e);
-  } else if (random) {
+  if (chooseBtn.classList.contains("current")) {
+    colorChosen(e);
+  } else if (randomBtn.classList.contains("current")) {
     colorRandom(e);
   } else {
-    colorChosen(e);
+    colorDarker(e);
   }
 }
 
