@@ -7,6 +7,7 @@ let darkenBtn = document.getElementById("darken-btn");
 let colorTypes = document.getElementById("color-types");
 
 colorTypes.addEventListener("click", (e) => {
+  // target and parent both needed due to custom button design
   const isButton = e.target.nodeName === "BUTTON" || 
   e.target.parentNode.nodeName === "BUTTON";
 
